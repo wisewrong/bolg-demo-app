@@ -1,0 +1,22 @@
+{
+  "name": "graph-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^15.3.0",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-graphql": "^0.8.0",
+    "koa-router": "^9.1.0",
+    "mongoose": "^5.9.24",
+    "nodemon": "^2.0.4"
+  }
+}

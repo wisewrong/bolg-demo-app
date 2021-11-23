@@ -1,0 +1,104 @@
+/* common.css */
+/* 通用样式 */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font: 14px "微软雅黑", Helvetica, Arial, sans-serif;
+}
+
+/* 通用类 - begin*/
+a {
+  cursor: pointer;
+}
+
+.border-item {
+  border-bottom: 1px #ccc dotted;
+  padding: 7px 10px 12px;
+}
+
+.label.label-empty {
+  color: #999;
+  font-weight: normal;
+}
+
+.media-content {
+  padding-top: 5px;
+}
+
+.card:hover {
+  box-shadow: 0px 1px 15px rgba(35, 105, 148, 0.5);
+}
+/* 通用类 - end*/
+
+body>.wrap {
+  min-height: 100%;
+}
+
+.content {
+  padding-bottom: 70px;
+  padding-top: 70px;
+}
+
+.main-list .thumbnail a>img{
+  width: 155px;
+  height: 220px;
+}
+
+.caption .caption-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+form .form-footer {
+  text-align: right;
+}
+
+/* 全局搜索结果 - begin */
+.modal-content .modal-header,
+.modal-content .modal-footer {
+  border: none;
+}
+.modal-content .modal-body {
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+}
+.modal-body .list-group {
+  margin: 0;
+}
+.list-group-item .media-left img{
+  width: 46px;
+  height: 66px
+}
+.list-group-item .media-heading {
+  font-size: 16px;
+}
+/* 全局搜索结果 - end */
+
+#footer {
+  width: 100%;
+  height: 70px;
+  margin-top: -70px;
+  background: #222222;
+  text-align: center;
+  font-size: 14px;
+  color: #9d9d9d;
+}
+
+#footer a {
+  color: #9d9d9d;
+}
+#footer a:hover {
+  opacity: 0.8;
+}
+
+#footer ul {
+  list-style: none;
+  display: inline-block;
+}
+
+#footer ul li {
+  display: inline-block;
+  float: left;
+  padding: 10px 15px 5px;
+}

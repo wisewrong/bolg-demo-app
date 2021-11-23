@@ -1,0 +1,97 @@
+
+
+.home .title {
+  color: @color-primary;
+  margin: 64px 0 12px;
+  font-family: monospace, system-ui, auto;
+  font-size: 36px;
+  text-align: center;
+}
+.todo-list {
+  margin: 0 auto;
+  width: 60%;
+  min-width: 480px;
+  max-width: 720px;
+  text-align: center;
+  box-shadow: 0 2px 12px 0 fade(@color-primary, 20%);
+
+  ::-webkit-input-placeholder {
+    color: @color-gray-100;
+    font-size: 16px;
+  }
+
+  .input, .input__inner {
+    width: 100%;
+  }
+  .input__inner {
+    border: 2px solid mix(@color-primary, @color-gray-100);
+    font-size: 22px;
+    padding: 12px 20px;
+    font-style: italic;
+    box-sizing: border-box;
+  }
+  .list {
+    margin: 0 0 12px;
+    padding: 12px;
+    border: 1px solid @color-border;
+    
+    .empty {
+      padding: 20px 0;
+      font-size: 14px;
+      color: @color-gray-200;
+      font-style: italic;
+    }
+
+    .item {
+      list-style: none;
+      text-align: left;
+      position: relative;
+      line-height: 20px;
+      font-size: 18px;
+      padding-right: 150px;
+
+      &:not(:last-child) {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: 1px solid @color-border;
+      }
+
+      &-text {
+        width: 100%;
+        display: inline-block;
+        padding-left: 28px;
+        box-sizing: border-box;
+      }
+    }
+
+    .item-actions {
+      position: absolute;
+      top: -2px;
+      right: 0;
+    }
+
+    .checkbox {
+      position: absolute;
+      left: 0;
+    }
+
+    .button {
+      padding: 4px 8px;
+      font-size: 14px;
+    }
+
+    .checked {
+      color: @color-gray-200;
+      &::after {
+        content: '';
+        display: block;
+        width: calc(100% - 20px);
+        height: 1px;
+        background-color: @color-gray-100;
+        transform: translateY(-14px);
+        margin-left: 20px;
+        margin-top: -1px;
+      }
+    }
+  }
+}

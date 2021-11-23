@@ -1,0 +1,42 @@
+/* detail.css */
+/* 详情页 */
+
+.detail .thumbnail a>img {
+  width: 100%;
+  max-width: 350px;
+}
+
+.detail h1 {
+  font-weight: bold;
+  font-size: 26px;
+  margin: 10px 0 20px;
+}
+
+.detail-block {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-top: 5px; 
+}
+
+.detail-block .detail-block-item {
+  margin-bottom: 7px;
+}
+
+.detail-block-item b {
+  padding-right: 5px;
+}
+
+.detail-link-list .detail-link-item{
+  padding-right: 90px;
+  position: relative;
+}
+
+.detail-link-item .btn {
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+
+.detail-link-item p {
+  font-size: 14px;
+}

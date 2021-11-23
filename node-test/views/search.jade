@@ -1,0 +1,13 @@
+block search
+  div(tabindex="-1",role="dialog",aria-hidden="true",aria-labelledby="searchModalLabel").modal.fade#searchBox
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button(type="button",data-dismiss="modal",aria-hidden="true").close &times;
+          h4.modal-title#searchModalLabel 查询结果
+        .modal-body
+          block modalBody
+            .list-group
+        .modal-footer
+          button(type="button",data-dismiss="modal").btn.btn-default 关闭
+          button(type="button").btn.btn-primary 确定

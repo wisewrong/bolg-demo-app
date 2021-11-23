@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    link(rel='shortcut icon', type="image/x-icon", href='/favicon.ico')
+    title= title
+    link(rel='stylesheet', href='https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/reset.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .wrap
+      block header
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          .container-fluid
+            .navbar-header
+              a.navbar-brand(href='http://www.wisewrong.com/', target='_blank') WiseWrong
+            ul.nav.navbar-nav
+              - var navs = [{name: '首页', index: '/index'}, {name: '评论', index: '/list'}]
+              each nav in navs
+                li(class="#{nav.index === activeIndex ? 'active' : ''}")
+                  a(href=nav.index)= nav.name
+            block headerForm
+              form.navbar-form.navbar-right
+                .input-group#globalSearch
+                  input(type="text", name="search", placeholder="请输入电影名称").form-control
+                  span.input-group-btn
+                    button(type="button").btn.btn-default
+                      i.glyphicon.glyphicon-search
+      .content.container
+        block content
+    block footer
+      footer#footer
+        ul
+          - var tags = ['琉璃之金', '朦胧之森', '雷霆之滔', '逍遥之火', '璀璨之沙']
+          each tag in tags
+            li= tag
+        p Copyright © <a href='http://www.cnblogs.com/wisewrong/' target='_blank'>十年八月</a> - 2017 All rights reserved
+    include search
+  script(src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js')
+  script(src='https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  script(src='/javascripts/common.js')
+  script(src='/javascripts/wise.js')

@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th 电影名称
+        th 评论时间
+        th 评论内容
+        th 评论地区
+        th(width="120") 点赞次数
+        th(width="65") 操作
+    tbody
+      each item in list
+        tr
+          td #{item.title}
+          - item.time = new Date(item.time.getTime() - (8 * 60 * 60 * 1000));
+          - Date.prototype.Format = function (fmt) { var o = {"M+": this.getMonth() + 1,"d+": this.getDate(),"h+": this.getHours(),"m+": this.getMinutes(),"s+": this.getSeconds(),"q+": Math.floor((this.getMonth() + 3) / 3),"S": this.getMilliseconds()};if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));for (var k in o) if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));return fmt;};
+          td #{item.time.Format("yyyy-MM-dd hh:mm")}
+          td #{item.content}
+          td #{item.address}
+          td #{item.praise}
+          td
+            .btn-group.btn-group-xs(role="group")
+              button(type="button", onclick="wComment.praiseComment(this, #{item.id})").btn.btn-default
+                i.glyphicon.glyphicon-heart
+              button(type="button" onclick="wComment.deleteComment(this, #{item.id})").btn.btn-default
+                i.glyphicon.glyphicon-trash

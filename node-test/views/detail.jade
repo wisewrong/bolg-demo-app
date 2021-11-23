@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  - var douban = {}
+  link(rel='stylesheet', href='/stylesheets/detail.css')
+  .row.detail
+    .col-md-4 
+      .thumbnail
+          a(href="/detail/#{movie.id}")
+            img(src="/images/#{movie.poster}", alt="#{movie.title}")
+    .col-md-8
+      h1= movie.title
+      ul.detail-block
+        - var info = [{title: '导　演：', text: movie.doctor}, {title: '地　区：', text: movie.country}, {title: '年　份：', text: movie.year}]
+        each item in info
+          li.detail-block-item
+            b= item.title
+            span= item.text
+      .detail-block
+        label 下载链接
+        ul.detail-link-list
+          each link in movie.links
+            li.detail-block-item.border-item.detail-link-item
+              p= link.url
+              - if (link.type==10)
+                a(href="#{link.url}", target="_blank").btn.btn-success.btn-xs= link.button
+              - else if (link.type==20)
+                a(href="#{link.url}", target="_blank").btn.btn-info.btn-xs= link.button
+              - else
+                a(href="#{link.url}", target="_blank").btn.btn-default.btn-xs= link.button
+      form.detail-block
+        .form-group
+          label.detail-comment-captain 评　论：
+          textarea(rows="4", name='comment', placeholder="说点什么吧").form-control
+        div.form-footer
+          button(type="button", onclick="wComment.submitComment(#{movie.id})")#submitBtn.btn.btn-primary 发表
+  script(src='http://ip.ws.126.net/ipquery')
