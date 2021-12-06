@@ -42,7 +42,7 @@ export default function FlowGraph(props) {
     relation: RelationNode,
   };
 
-  // 自定义节点
+  // 自定义连线
   const edgeTypes = {
     link: LinkEdge,
   };
