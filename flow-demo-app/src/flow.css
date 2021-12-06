@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 html,
 body,
@@ -148,4 +148,38 @@ body,
 
 .graph .relation-node-btn:hover {
   opacity: 0.7;
+}
+
+.linkedge-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkedge-card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f0f0fd;
+  border: 1px solid #c3c4dd;
+  border-radius: 4px;
+  padding: 6px 14px;
+  text-align: center;
+  height: 52px;
+}
+
+.linkedge-card-item__icon {
+  padding: 0 8px;
+}
+
+.linkedge-card-item__title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #393b99;
+}
+
+.linkedge-card-item__tips {
+  color: #9e9faf;
+  font-size: 12px;
 }

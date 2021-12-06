@@ -7,6 +7,9 @@ import * as Actions from './actions';
 const FlowContext = createContext();
 
 const initState = {
+  // 画布实例
+  reactFlowInstance: null,
+  // 节点数据、连线数据
   elements: [],
   // 画布数据
   flowData: new Map(),

@@ -1,4 +1,4 @@
-// index.jsx
+// flow.jsx
 
 import React from 'react';
 import { ReactFlowProvider } from 'react-flow-renderer';
@@ -6,9 +6,10 @@ import Sider from './Sider';
 import Graph from './Graph';
 import Toolbar from './Toolbar';
 import Modal from './components/Modal';
+// 引入 Provider
 import { FlowContextProvider } from './context';
 
-import './index.css';
+import './flow.css';
 
 export default function FlowPage() {
   return (

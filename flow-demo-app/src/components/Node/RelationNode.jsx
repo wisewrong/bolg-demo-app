@@ -33,13 +33,13 @@ const renderMenu = ({ dispatch, ...node }) => {
 };
 
 const RelationNode = (props) => {
-  const { data, isConnectable = true } = props;
-  const { label } = data || {};
-  const { dispatch } = useContext(FlowContext);
+  const { id, isConnectable = true } = props;
+  const { dispatch, state } = useContext(FlowContext);
+  const currentNode = state.flowData.get(id) || {};
 
   return (
     <div className="relation-node">
-      <div className="relation-node-title">{label}</div>
+      <div className="relation-node-title">{currentNode.label}</div>
       <div className="relation-node-action">
         <Dropdown overlay={renderMenu({ ...props, dispatch })} trigger={["click"]}>
           <Button

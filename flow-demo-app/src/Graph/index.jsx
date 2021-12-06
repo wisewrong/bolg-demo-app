@@ -1,19 +1,16 @@
 // Graph/index.jsx
 
-import React, { useState, useRef, useContext } from 'react';
-import ReactFlow, {
-  addEdge,
-  Controls,
-} from 'react-flow-renderer';
-import RelationNode from '../components/Node/RelationNode';
-import { FlowContext, Actions } from '../context';
+import React, { useRef, useContext } from "react";
+import ReactFlow, { addEdge, Controls } from "react-flow-renderer";
+import RelationNode from "../components/Node/RelationNode";
+import LinkEdge from "../components/Edge/LinkEdge";
+import { FlowContext, Actions } from "../context";
 
 function getHash(len) {
   let length = Number(len) || 8;
-  const arr =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split('');
+  const arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
   const al = arr.length;
-  let chars = '';
+  let chars = "";
   while (length--) {
     chars += arr[parseInt(Math.random() * al, 10)];
   }
@@ -22,11 +19,16 @@ function getHash(len) {
 
 export default function FlowGraph(props) {
   const { state, dispatch } = useContext(FlowContext);
-  const { elements } = state;
+  const { elements, reactFlowInstance } = state;
   // 画布的 DOM 容器，用于计算节点坐标
   const graphWrapper = useRef(null);
-  // 画布实例
-  const [reactFlowInstance, setReactFlowInstance] = useState(null);
+
+  const setReactFlowInstance = (instance) => {
+    dispatch({
+      type: Actions.SET_INSTANCE,
+      payload: instance,
+    });
+  };
 
   const setElements = (els) => {
     dispatch({
@@ -40,16 +42,31 @@ export default function FlowGraph(props) {
     relation: RelationNode,
   };
 
+  // 自定义节点
+  const edgeTypes = {
+    link: LinkEdge,
+  };
+
   // 画布加载完毕，保存当前画布实例
   const onLoad = (instance) => setReactFlowInstance(instance);
   // 连线
-  const onConnect = (params) => setElements(addEdge(params, elements));
+  const onConnect = (params) =>
+    setElements(
+      addEdge(
+        {
+          ...params,
+          type: "link",
+        },
+        elements
+      )
+    );
 
+  // 拖拽完成后放置节点
   const onDrop = (event) => {
     event.preventDefault();
 
     const reactFlowBounds = graphWrapper.current.getBoundingClientRect();
-    const type = event.dataTransfer.getData('application/reactflow');
+    const type = event.dataTransfer.getData("application/reactflow");
     const position = reactFlowInstance.project({
       x: event.clientX - reactFlowBounds.left,
       y: event.clientY - reactFlowBounds.top,
@@ -72,7 +89,7 @@ export default function FlowGraph(props) {
 
   const onDragOver = (event) => {
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = "move";
   };
 
   return (
@@ -80,6 +97,7 @@ export default function FlowGraph(props) {
       <ReactFlow
         elements={elements}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         onConnect={onConnect}
         onLoad={onLoad}
         onDrop={onDrop}
