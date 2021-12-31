@@ -1,0 +1,24 @@
+.alert-box {
+  min-width: 380px;
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
+  padding: 15px 15px 15px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #edf2fc;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 1000;
+
+  &.type-error {
+    background-color: #fef0f0;
+    border-color: #fde2e2;
+    color: #f56c6c;
+  }
+}

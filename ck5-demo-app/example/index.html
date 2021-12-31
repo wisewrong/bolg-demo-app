@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My CKEditor 5</title>
+  </head>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body,
+    .container {
+      width: 100%;
+      height: 100%;
+      background: rgba(247, 247, 247, 1);
+    }
+
+    header {
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+      background-color: #3c9ef3;
+      font-size: 20px;
+      color: white;
+      font-weight: 700;
+    }
+    main {
+      padding: 24px;
+    }
+    .editor-container {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .editor-footer {
+      padding: 12px 0;
+    }
+    .editor-footer button {
+      padding: 4px 6px;
+      float: right;
+    }
+  </style>
+
+  <body>
+    <header>My CKEditor 5</header>
+    <main>
+      <div class="editor-container">
+        <textarea id="editor-area"></textarea>
+        <div class="editor-footer">
+          <button id="submit">Submit</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

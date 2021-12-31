@@ -1,0 +1,24 @@
+{
+  "name": "my-editor",
+  "version": "1.0.0",
+  "description": "The main package of my-ck5editor.",
+  "author": "Wise.Wrong",
+  "license": "ISC",
+  "scripts": {
+    "build": "webpack --mode production --config webpack.config.js"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^25.0.0",
+    "@ckeditor/ckeditor5-block-quote": "^25.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^25.0.0",
+    "@ckeditor/ckeditor5-essentials": "^25.0.0",
+    "@ckeditor/ckeditor5-heading": "^25.0.0",
+    "@ckeditor/ckeditor5-link": "^25.0.0",
+    "@ckeditor/ckeditor5-list": "^25.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^25.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^25.0.0"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-inspector": "^2.2.2"
+  }
+}

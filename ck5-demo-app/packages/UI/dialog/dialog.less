@@ -1,0 +1,117 @@
+
+.dialog{
+  position: fixed;
+  left: 0;
+  top:0;
+  right:0;
+  bottom:0;
+  background: transparent;
+  z-index: 1000;
+  overflow: auto;
+
+  &-mask {
+    position: absolute;
+    left: 0;
+    top:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.4);
+  }
+
+  &-main {
+    background: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.14);
+    transform: translateX(-50%);
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-name: popBoxZoomIn;
+    z-index: 1;
+  }
+
+  &-header {
+    padding: 16px 20px 8px;
+
+    &-action {
+      .dialog-button_close {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        color: #909399;
+        float: right;
+        font-size: 16px;
+        line-height: 24px;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &-content{
+    position: relative;
+    padding: 20px;
+    color: #606266;
+    font-size: 14px;
+    word-break: break-all;
+  }
+
+  &-footer {
+    padding: 10px 20px 16px;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  &-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #efefef;
+    }
+
+    & + .dialog-button {
+      margin-left: 10px;
+    }
+
+    &.button-primary {
+      color: #fff;
+      background-color: #3c9ef3;
+      border-color: #3c9ef3;
+
+      &:hover {
+        border-color: rgba(#3c9ef3, .7);
+        background-color: rgba(#3c9ef3, .7);
+      }
+    }
+  }
+}
+
+
+@keyframes popBoxZoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(.7, .7, .7);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

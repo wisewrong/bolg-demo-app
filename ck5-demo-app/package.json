@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --config webpack.config.js",
+    "build": "yarn workspace my-editor run build"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=5.7.1"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-dev-utils": "^24.1.0",
+    "clean-webpack-plugin": "3",
+    "css-loader": "1",
+    "html-webpack-plugin": "^4.5.1",
+    "less": "3",
+    "less-loader": "4",
+    "postcss-loader": "3",
+    "raw-loader": "3",
+    "style-loader": "1",
+    "webpack": "4",
+    "webpack-cli": "3",
+    "webpack-dev-server": "3"
+  }
+}
