@@ -9,6 +9,12 @@
   "main": "./lib/packages.umd.cjs",
   "module": "./lib/packages.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/packages.js",
+      "require": "./lib/packages.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
